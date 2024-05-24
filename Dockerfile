@@ -24,6 +24,8 @@ RUN echo "LimitRequestLine 12000" > /etc/apache2/conf-available/limits.conf && \
 # Copy files
 WORKDIR /app
 COPY . .
+#Create user application first:
+RUN getent passwd application || useradd -m application
 RUN chown -R application:application /app
 
 # switch to application user
