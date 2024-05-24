@@ -4,7 +4,7 @@ FROM arm64v8/php:8.3-apache
 # update and install dependencies
 RUN echo "LimitRequestLine 12000" > /etc/apache2/conf-available/limits.conf && \
     a2enconf limits && \
-    && curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+    curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
         build-essential \
